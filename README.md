@@ -16,6 +16,6 @@ it stores all the bodies and computes gravitational forces among them
 Dependencies : Stdlib.jar \
 All resources are in .idea//resources\
 input and output file in .idea//resources\
-copy paste initial coordinates in input file\
+copy paste initial coordinates in input filein the specified format\
 end coordinates are pasted in output file
 

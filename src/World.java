@@ -4,9 +4,9 @@ import java.math.RoundingMode;
 
 
 public class World {
-    Body [] bodies;
-    BigDecimal G;
-    BigDecimal dt;
+    Body [] bodies; //to store Bodies
+    BigDecimal G; //gravitational constant
+    BigDecimal dt; //time step
 
     public World(BigDecimal g, int n, BigDecimal dt) {
         G = g;
@@ -15,7 +15,7 @@ public class World {
         this.dt=dt;
     }
 
-    private BigDecimal force(BigDecimal m1, BigDecimal m2, BigDecimal r)
+    private BigDecimal force(BigDecimal m1, BigDecimal m2, BigDecimal r)//calculates force magnitude
     {//r is r2
         r=r.multiply(r);
         if(r.doubleValue()<1)
@@ -24,7 +24,7 @@ public class World {
         }
         return (G.multiply(m1).multiply(m2)).divide(r,25, RoundingMode.FLOOR); // net force
     }
-    private void forcexy()
+    private void forcexy() //calculate acceleration with direction
     {
         for (Body x:bodies) {
             x.accx= new BigDecimal("0.0");
@@ -108,7 +108,7 @@ public class World {
 
         }
     }
-    void updatedisplacement()
+    private void updatedisplacement() //to update displacement
     {
         for (Body body: bodies)
         {
@@ -117,7 +117,7 @@ public class World {
         }
 
     }
-    void updatevelocity()
+    private void updatevelocity() //to update velocity
     {
         for (Body body:bodies)
         {
@@ -125,7 +125,7 @@ public class World {
             body.vely=body.vely.add(body.accy.multiply(dt));
         }
     }
-    void update()
+    void update() //call this function
     {
         forcexy();
         updatedisplacement();

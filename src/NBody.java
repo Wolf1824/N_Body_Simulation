@@ -19,12 +19,12 @@ public class NBody implements Runnable {
         nBody.render();
         nBody.output();
     }
-    void music()
+    void music()//to add background music
     {
         Thread t= new Thread(this);
         t.start();
     }
-    void create()
+    void create() //reads inout and initializes world
     {
         System.out.println("enter time and dt");
         T = new BigDecimal(StdIn.readLine());
@@ -33,7 +33,7 @@ public class NBody implements Runnable {
         Scanner sc; //file input
         FileReader obj;
         try {
-            obj = new FileReader(".idea\\resources\\input.txt");
+            obj = new FileReader(".idea\\resources\\input.txt"); //location of input file
         } catch (FileNotFoundException e) {
             throw new RuntimeException(e);
         }
@@ -70,16 +70,15 @@ public class NBody implements Runnable {
             images[q]=".idea\\resources\\"+images[q];
         }
     }
-    void render() {
+    void render() { // animates output
         int j=0;
-        //w1.com();
         StdDraw.setPenColor(Color.GRAY);
         do {
             if(tt.compareTo(T)>=0)
             {
                 return;
             }
-            if(j%8==0)
+            if(j%6==0)
                 StdDraw.clear();
             ++j;
             for (int i = 0; i < w1.bodies.length; i++) {
@@ -89,14 +88,14 @@ public class NBody implements Runnable {
             tt=tt.add(dt);
         } while (j<50000);
     }
-    void output()
+    void output() //writes file in the specified location and console
     {
         for (Body x: w1.bodies) {
             System.out.println(x);
         }
         FileWriter obj;
         try {
-            obj = new FileWriter(".idea\\resources\\output.txt");
+            obj = new FileWriter(".idea\\resources\\output.txt"); //location of output file
         } catch (IOException e) {
             throw new RuntimeException(e);
         }
