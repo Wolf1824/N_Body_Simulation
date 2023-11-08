@@ -11,7 +11,11 @@ The entire project is divided into 3 classes
   mass\
 2. World 
 it stores all the bodies and computes gravitational forces among them
-3. Nbody 
-it takes coordinates from world and animates the output, with music
+3. Nbody it takes coordinates from world and animates the output, with music
 
-In order to run the project make sure you have 
+Dependencies : Stdlib.jar \
+All resources are in .idea//resources\
+input and output file in .idea//resources\
+copy paste initial coordinates in input file\
+end coordinates are pasted in output file
+

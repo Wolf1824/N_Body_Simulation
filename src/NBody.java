@@ -91,7 +91,9 @@ public class NBody implements Runnable {
     }
     void output()
     {
-
+        for (Body x: w1.bodies) {
+            System.out.println(x);
+        }
         FileWriter obj;
         try {
             obj = new FileWriter(".idea\\resources\\output.txt");

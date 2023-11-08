@@ -20,20 +20,6 @@ public class Body {
         accy = new BigDecimal("0.0");
         radius=new BigDecimal("0.05");
         this.id = id;
-        System.out.println(this.toString());
-    }
-
-    Body()
-    {
-        posx=new BigDecimal("0.0");
-        posy=new BigDecimal("0.0");
-        velx=new BigDecimal("0.0");
-        vely=new BigDecimal("0.0");
-        mass=new BigDecimal("0.0");
-        accx=new BigDecimal("0.0");
-        accy=new BigDecimal("0.0");
-        radius=new BigDecimal(("0.05"));
-        id =-1;
     }
 
     @Override

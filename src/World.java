@@ -4,7 +4,7 @@ import java.math.RoundingMode;
 
 
 public class World {
-    Body bodies[];
+    Body [] bodies;
     BigDecimal G;
     BigDecimal dt;
 
@@ -45,15 +45,10 @@ public class World {
                 m2=b.mass;
                 x=b.posx.subtract(a.posx);//a at origin and b at some point
                 y=b.posy.subtract(a.posy);
-                BigDecimal fxy[] = new BigDecimal[2];
+                BigDecimal [] fxy= new BigDecimal[2];
                 BigDecimal r=((x.multiply(x)).add(y.multiply(y)));
                 r=r.sqrt(new MathContext(10));
                 double theta;
-                /*if(bodies[i].radius.add(bodies[j].radius).compareTo(r)>=0)
-                {
-                    System.out.println("Collision");
-                    bodycollision(i,j);
-                }*/
                 if (x.doubleValue()==0.0)       // when a body is directly on y axis wrt to target body
                 {
                     if ((Math.signum(y.doubleValue())==-1))
@@ -72,14 +67,13 @@ public class World {
                 }
                 else if (y.doubleValue()==0.0)           //when body is on x axis wrt target body
                 {
-                    if((Math.signum(x.doubleValue())==-1)) {
+                    if (Math.signum(x.doubleValue())==-1) {
                         fxy[0] = force(m1, m2 ,r).multiply(BigDecimal.valueOf(-1));
                         a.accx=a.accx.add(fxy[0].divide(a.mass, 25, RoundingMode.FLOOR));
                         b.accx=b.accx.subtract(fxy[0].divide(b.mass,25, RoundingMode.FLOOR));
                         break;
                     }
                     else {
-                        theta=0.0;
                         fxy[0] = force(m1, m2 ,r);
                         a.accx=a.accx.add(fxy[0].divide(a.mass, 25, RoundingMode.FLOOR));
                         b.accx=b.accx.subtract(fxy[0].divide(b.mass,25, RoundingMode.FLOOR));
@@ -134,29 +128,9 @@ public class World {
     void update()
     {
         forcexy();
-        for (Body x:bodies) {
-            System.out.println(x);
-        }
         updatedisplacement();
         updatevelocity();
         //com();
     }
-    /*void wallcollision()
-    {
-        for (Body b:bodies)
-        {
-            if(b.posx.compareTo()<0)
-            {
 
-            }
-
-        }
-
-    }
-    */
-
-    /*void bodycollision(int i, int j)
-    {
-
-    }*/
 }
