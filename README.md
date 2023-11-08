@@ -17,5 +17,7 @@ Dependencies : Stdlib.jar \
 All resources are in .idea//resources\
 input and output file in .idea//resources\
 copy paste initial coordinates in input filein the specified format\
-end coordinates are pasted in output file
+end coordinates are pasted in output file\
+![image](https://github.com/Wolf1824/N_Body_Simulation/assets/114616349/e996dd51-312d-4871-a4ad-0ef9d9226b26)
+
 
